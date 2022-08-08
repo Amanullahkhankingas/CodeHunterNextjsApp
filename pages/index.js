@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import Link from 'next/link'
+
 // import Dummy from '../component/dummy'
 
 // import styles1 from '../styles/Home1.module.css'
@@ -29,14 +29,7 @@ export default function Home() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <nav className={styles.navbar}>
-          <ul >
-            <Link href='/'><a><li>Home</li></a></Link>
-            <Link href='/blog'><a><li>Blogs</li></a></Link>
-            <Link href='/services'><a><li>Services</li></a></Link>
-            <Link href='/about'><a><li>About Us</li></a></Link>
-          </ul>
-        </nav>
+        
 
         <main className={styles.main}>
           <h1 className={styles.title}>
