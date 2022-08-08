@@ -127,3 +127,18 @@
     filter: invert(1);
   }
 }
+
+
+.navbar ul{
+  display: flex;
+  justify-content: center;
+background-color:rgb(14, 13, 13);
+color: white;
+
+}
+.navbar ul li {
+  list-style: none;
+  margin: 6px 12px;
+  padding: 3px;
+  
+}
