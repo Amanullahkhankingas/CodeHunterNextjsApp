@@ -3,6 +3,9 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 
+// import styles1 from '../styles/Home1.module.css'
+// import styles2 from '../styles/Home2.module.css'
+
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -30,6 +33,7 @@ export default function Home() {
           Code hunter is helping to <b>Learn</b> new <b>Skills</b>, problem solve methods , catching methods
         </p>
 
+        {/* <div className={`${styles1.con} ${styles2.con}`}> */}
         <div className="blogs">
           <h1>Learn by Blogs</h1>
           <div className="blogitem">
