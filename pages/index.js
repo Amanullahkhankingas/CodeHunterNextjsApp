@@ -2,76 +2,92 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
+import Dummy from '../component/dummy'
 
 // import styles1 from '../styles/Home1.module.css'
 // import styles2 from '../styles/Home2.module.css'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Code Hunter</title>
-        <meta name="description" content="Code hunter is helps to learn new coding skills || problem solved methods || bugs detecting methods" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <>    
+      <style jsx>
+        {`
+        .with_in_component_styling{
+          color:yellow
+        }
+        `}
+      </style>
+    
 
-      <nav className={styles.navbar}>
-        <ul >
-          <Link href='/'><a><li>Home</li></a></Link>
-          <Link href='/blog'><a><li>Blogs</li></a></Link>
-          <Link href='/services'><a><li>Services</li></a></Link>
-          <Link href='/about'><a><li>About Us</li></a></Link>
-        </ul>
-      </nav>
+      {/* <Dummy/> setting the style jsx of Dummy component as global ,so now we can use css class of dummy component here  */}
+      <Dummy/>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Code Hunter
-        </h1>
+      <div className={styles.container}>
+        <Head>
+          <title>Code Hunter</title>
+          <meta name="description dummy" content="Code hunter is helps to learn new coding skills || problem solved methods || bugs detecting methods" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-        <p className={styles.description}>
-          Code hunter is helping to <b>Learn</b> new <b>Skills</b>, problem solve methods , catching methods
-        </p>
+        <nav className={styles.navbar}>
+          <ul >
+            <Link href='/'><a><li>Home</li></a></Link>
+            <Link href='/blog'><a><li>Blogs</li></a></Link>
+            <Link href='/services'><a><li>Services</li></a></Link>
+            <Link href='/about'><a><li>About Us</li></a></Link>
+          </ul>
+        </nav>
 
-        {/* <div className={`${styles1.con} ${styles2.con}`}> */}
-        <div className="blogs">
-          <h1>Learn by Blogs</h1>
-          <div className="blogitem">
-            <h3>Learn javaScript</h3>
-            <p>Javascirpt is a machine understandable language which was used to design the website</p>
+        <main className={styles.main}>
+          <h1 className={styles.title}>
+           <span className='with_in_component_styling'>Code Hunter</span>
+          </h1>
+
+          <p className={styles.description}>
+            Code hunter is helping to <b>Learn</b> new <b>Skills</b>, problem solve methods , catching methods
+          </p>
+
+          {/* <div className={`${styles1.con} ${styles2.con}`}> */}
+          <div className="blogs">
+            <h1>Learn by Blogs</h1>
+            <div className="blogitem">
+              <h3>Learn javaScript</h3>
+              <p>Javascirpt is a machine understandable language which was used to design the website</p>
+            </div>
+            <div className="blogitem">
+              <h3>Learn javaScript</h3>
+              <p>Javascirpt is a machine understandable language which was used to design the website</p>
+            </div>
+            <div className="blogitem">
+              <h3>Learn javaScript</h3>
+              <p>Javascirpt is a machine understandable language which was used to design the website</p>
+            </div>
+            <div className="blogitem">
+              <h3>Learn javaScript</h3>
+              <p>Javascirpt is a machine understandable language which was used to design the website</p>
+            </div>
+            <div className="blogitem">
+              <h3>Learn javaScript</h3>
+              <p>Javascirpt is a machine understandable language which was used to design the website</p>
+            </div>
           </div>
-          <div className="blogitem">
-            <h3>Learn javaScript</h3>
-            <p>Javascirpt is a machine understandable language which was used to design the website</p>
-          </div>
-          <div className="blogitem">
-            <h3>Learn javaScript</h3>
-            <p>Javascirpt is a machine understandable language which was used to design the website</p>
-          </div>
-          <div className="blogitem">
-            <h3>Learn javaScript</h3>
-            <p>Javascirpt is a machine understandable language which was used to design the website</p>
-          </div>
-          <div className="blogitem">
-            <h3>Learn javaScript</h3>
-            <p>Javascirpt is a machine understandable language which was used to design the website</p>
-          </div>
-        </div>
 
-      </main>
+        </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
-    </div>
+        <footer className={styles.footer}>
+          <a
+            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Powered by{' '}
+            <span className={styles.logo}>
+              <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+            </span>
+          </a>
+        </footer>
+      </div>
+    </>
+
   )
 }
