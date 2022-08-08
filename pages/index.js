@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
-import Dummy from '../component/dummy'
+// import Dummy from '../component/dummy'
 
 // import styles1 from '../styles/Home1.module.css'
 // import styles2 from '../styles/Home2.module.css'
@@ -12,15 +12,15 @@ export default function Home() {
     <>    
       <style jsx>
         {`
-        .with_in_component_styling{
-          color:yellow
-        }
+        
+       
+
         `}
       </style>
     
 
       {/* <Dummy/> setting the style jsx of Dummy component as global ,so now we can use css class of dummy component here  */}
-      <Dummy/>
+     
 
       <div className={styles.container}>
         <Head>
@@ -40,34 +40,37 @@ export default function Home() {
 
         <main className={styles.main}>
           <h1 className={styles.title}>
-           <span className='with_in_component_styling'>Code Hunter</span>
+           Code Hunter
           </h1>
+          <div className={styles.imgdiv}>
+          <Image className={styles.imgclass} src="/homeimg.jpg" width={512} height={256}/>
 
+          </div>
           <p className={styles.description}>
-            Code hunter is helping to <b>Learn</b> new <b>Skills</b>, problem solve methods , catching methods
+            Code hunter is helping to <b>Learn</b> new <b>Skills</b>, Problem solve methods,<br/>Bug catching techniques
           </p>
 
           {/* <div className={`${styles1.con} ${styles2.con}`}> */}
           <div className="blogs">
-            <h1>Learn by Blogs</h1>
+            <h1>Populer Blogs</h1>
             <div className="blogitem">
-              <h3>Learn javaScript</h3>
+              <h3>Learn javaScript in 2022</h3>
               <p>Javascirpt is a machine understandable language which was used to design the website</p>
             </div>
             <div className="blogitem">
-              <h3>Learn javaScript</h3>
+              <h3>Learn javaScript in 2022</h3>
               <p>Javascirpt is a machine understandable language which was used to design the website</p>
             </div>
             <div className="blogitem">
-              <h3>Learn javaScript</h3>
+              <h3>Learn javaScript in 2022</h3>
               <p>Javascirpt is a machine understandable language which was used to design the website</p>
             </div>
             <div className="blogitem">
-              <h3>Learn javaScript</h3>
+              <h3>Learn javaScript in 2022</h3>
               <p>Javascirpt is a machine understandable language which was used to design the website</p>
             </div>
             <div className="blogitem">
-              <h3>Learn javaScript</h3>
+              <h3>Learn javaScript in 2022</h3>
               <p>Javascirpt is a machine understandable language which was used to design the website</p>
             </div>
           </div>
@@ -75,16 +78,7 @@ export default function Home() {
         </main>
 
         <footer className={styles.footer}>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Powered by{' '}
-            <span className={styles.logo}>
-              <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-            </span>
-          </a>
+            www.amanullah@codehunter.com
         </footer>
       </div>
     </>
