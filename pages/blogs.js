@@ -5,18 +5,22 @@ import Link from 'next/link'
 // Step 1: Collect all the files from blogdata directory
 //Step 2: Iterate through them and Dispaly them
 
-const blogs = () => {
-       const [blogsitem,setBlogsitem]= useState([]);
-      useEffect(()=>{
-        console.log("use effect is running")
+const blogs = (props) => {
+  // console.log(props.allmyblogs)
 
-        fetch(' http://localhost:3000/api/blogs').then((allblogsdata)=>{
-          return allblogsdata.json();
-        }).then((blogdata)=>{
-            setBlogsitem(blogdata)
-        })
-      },[])
-      // console.log(blogsitem)
+  // const [blogsitem,setBlogsitem]= useState([]);
+  const [blogsitem,setBlogsitem]= useState(props.allmyblogs);
+
+      // useEffect(()=>{
+      //   console.log("use effect is running")
+
+      //   fetch(' http://localhost:3000/api/blogs').then((allblogsdata)=>{
+      //     return allblogsdata.json();
+      //   }).then((blogdata)=>{
+      //       setBlogsitem(blogdata)
+      //   })
+      // },[])
+      
 
   return (
     <div>
@@ -31,35 +35,14 @@ const blogs = () => {
           <div className="blogs">
             {blogsitem.map((blogfile)=>{
               return <div className={styles.blogitem} key={blogfile.slug}>
-              <Link href='/blogposts/learn javascript in 2022'>
+              <Link href={`/blogposts/${blogfile.slug}`}>
               <h3>{blogfile.title}</h3>
               </Link>
               <p>{blogfile.content.substr(0,129)}...</p>
             </div>
             })}
            
-            {/* <div className={styles.blogitem}>
-              <Link href='/blogposts/learn javascript in 2022'>
-              <h3>Learn javaScript in 2022</h3>
-              </Link>
-              <p>Javascirpt is a machine understandable language which was used to design the website</p>
-            </div>
-            <div className="blogitem">
-              <h3>Learn javaScript in 2022</h3>
-              <p>Javascirpt is a machine understandable language which was used to design the website</p>
-            </div>
-            <div className="blogitem">
-              <h3>Learn javaScript in 2022</h3>
-              <p>Javascirpt is a machine understandable language which was used to design the website</p>
-            </div>
-            <div className="blogitem">
-              <h3>Learn javaScript in 2022</h3>
-              <p>Javascirpt is a machine understandable language which was used to design the website</p>
-            </div>
-            <div className="blogitem">
-              <h3>Learn javaScript in 2022</h3>
-              <p>Javascirpt is a machine understandable language which was used to design the website</p>
-            </div> */}
+           
           </div>
 
         </main>
@@ -67,6 +50,22 @@ const blogs = () => {
 
     </div>
   )
+}
+
+export async function getServerSideProps(context){
+
+ 
+    console.log("use effect is running")
+
+    let allblogs =await fetch(' http://localhost:3000/api/blogs');
+     let allmyblogs=await allblogs.json();
+   
+ 
+
+  return{
+    // props:{aman:"props is here"}, //will be passed to the page component as props
+    props:{allmyblogs}, //will be passed to the page component as props
+  }
 }
 
 export default blogs

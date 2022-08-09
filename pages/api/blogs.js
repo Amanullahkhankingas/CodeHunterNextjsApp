@@ -7,7 +7,7 @@ export default async function getblog (reqpost,respost) {
 
 
     let data = await fs.promises.readdir(`blogdata`,'utf-8')
-    console.log(data)
+    // console.log(data)
     
     let allblogs=[];
 
