@@ -17,4 +17,9 @@
   
   .blogitem h3{
     cursor: pointer;
+    max-width: 45vw;
+  }
+  .blogitem p{
+    
+    max-width: 45vw;
   }

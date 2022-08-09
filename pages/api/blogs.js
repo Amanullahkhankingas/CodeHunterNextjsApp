@@ -3,26 +3,38 @@
 
 import fs from 'fs'
 
-export default function getblog(reqpost,respost) {
+export default async function getblog (reqpost,respost) {
 
-    fs.readdir(`blogdata`,'utf-8',(err,data)=>{
 
-        if(err){
-            
-            respost.status(200).json({error:"the directory of blogposts is not found "})
-        }
-       
+    let data = await fs.promises.readdir(`blogdata`,'utf-8')
+    console.log(data)
+    
+    let allblogs=[];
 
-        respost.status(200).json(data)
+    for (let index = 0; index < data.length; index++) {
+        const item = data[index];
 
-        // my code just trying to durty my hands
-        // for(let i=0;i<data.length;i++){
-        //     postdata=[]
-        //     let postdata += JSON.parse(data)
-        //     respost.status(200).json({postdata})
-        // }
+        // console.log(item)
+       const myblog = await fs.promises.readFile(`blogdata/${item}`,'utf-8')
+        // console.log(myblog)
+      
+        allblogs.push(JSON.parse(myblog))
         
-    })
+    }
+    respost.status(200).json(allblogs)
+
+
+    
+    // fs.readdir(`blogdata`,'utf-8',(err,data)=>{
+
+    //     if(err){
+            
+    //         respost.status(200).json({error:"the directory of blogposts is not found "})
+    //     }
+    //     // respost.status(200).json(data)
+    //     // respost.status(200).json(postdata)
+        
+    // })
 
 
 }
