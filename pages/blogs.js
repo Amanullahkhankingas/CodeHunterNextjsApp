@@ -39,7 +39,7 @@ const Blogs = (props) => {
               <Link href={`/blogposts/${blogfile.slug}`}>
               <h3>{blogfile.title}</h3>
               </Link>
-              <p>{blogfile.content.substr(0,129)}...</p>
+              <p>{blogfile.metadesc.substr(0,129)}...</p>
             </div>
             })}
            

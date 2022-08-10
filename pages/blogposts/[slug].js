@@ -11,10 +11,21 @@ import fs from 'fs'
 const Slug = (props) => {
 const router = useRouter();
 
-// console.log(router.query)
+/*
+function createMarkup() {
+  return {__html: 'First &middot; Second'};
+}
+
+function MyComponent() {
+  return <div dangerouslySetInnerHTML={createMarkup()} />;
+}
+  */
+
+
 
 const [blog,setBlog]=useState(props.myblog)
-// console.log(blog)
+
+
 
 
 // const [blog,setBlog]=useState()
@@ -39,12 +50,17 @@ const [blog,setBlog]=useState(props.myblog)
 
 //   },[router.isReady])
 
+
+function createMarkup(c) {
+  return {__html: c};
+}
+
   return <div className={styles.container}>
      <div className={styles.container}>
       <h2>{blog && blog.title}</h2>
-      <p>{blog && blog.content}</p>
-      {/* <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam id quibusdam quaerat laudantium quo provident odit atque tenetur recusandae dolores, voluptate minus laboriosam eaque suscipit doloremque esse, labore similique? Inventore aut non, temporibus dicta ullam ratione aspernatur esse perferendis, velit ducimus ab fuga nesciunt voluptatem enim quos. Tempore ab reprehenderit iste ducimus aliquid id!</p> */}
-     </div>
+      {blog && <div dangerouslySetInnerHTML={createMarkup(blog.content)}></div>}
+      {/* <p>{blog && blog.content}</p> */}
+       </div>
          
          
          </div>
