@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/image'
+// import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 // import Dummy from '../component/dummy'
@@ -36,7 +36,9 @@ export default function Home() {
            Code Hunter
           </h1>
           <div className={styles.imgdiv}>
-          <Image className={styles.imgclass} src="/homeimg.jpg" width={512} height={256}/>
+          {/* <Image className={styles.imgclass} src="/homeimg.jpg" width={512} height={256}/> */}
+  
+          <img className={styles.imgclass} src="/homeimg.jpg" alt="Code Hunter"  width={512} height={256} />
 
           </div>
           <p className={styles.description}>
