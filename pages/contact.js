@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import style from '../styles/Blog.module.css'
+import style from '../styles/Contact.module.css'
 
 const Contact = () => {
 
@@ -20,8 +20,15 @@ const Contact = () => {
             },
             // body: JSON.stringify([name,email,phone,desc])
             body: JSON.stringify(data)
+            
 
-          })
+          });
+
+          alert('thank for contacting us')
+          setName('')
+          setEmail('')
+          setPhone('')
+          setDesc('')
     }
     const handleChange = (e)=>{
          if(e.target.name === 'name'){
@@ -43,23 +50,24 @@ const Contact = () => {
   return (
     <div>
       <form onSubmit={handleSubmit} className={style.container}>
+        <h1 className={style.center}>Contect US for any query or Else</h1>
         <div className={style.mb3}>
             <label htmlFor="name">Name</label>
-            <input type="text" className="from-control"  name='name' id="name" value={name} onChange={handleChange} />
+            <input type="text"   name='name' id="name" value={name} onChange={handleChange} />
         </div>
         <div className={style.mb3}>
             <label htmlFor="email">Email</label>
-            <input type="email" className="from-control" name='email' id="email" value={email} onChange={handleChange} />
+            <input type="email"  name='email' id="email" value={email} onChange={handleChange} />
         </div>
         <div className={style.mb3}>
             <label htmlFor="phone">Phone No</label>
-            <input type="phone" className="from-control" name='phone' id="phone" value={phone} onChange={handleChange} />
+            <input type="phone"  name='phone' id="phone" value={phone} onChange={handleChange} />
         </div>
         <div className={style.mb3}>
             <label htmlFor="desc">Elaborate Your Concern</label>
-            <input type="text" className="from-control" name='desc' id="desc" value={desc} onChange={handleChange} />
+            <textarea type="text"  name='desc' id="desc" value={desc} onChange={handleChange}  rows='12' />
         </div>
-        <button type='submit'>Submit</button>
+        <button className={style.btn} type='submit'>Submit</button>
       </form>
     </div>
   )

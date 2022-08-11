@@ -28,7 +28,7 @@ const Blogs = (props) => {
       
       <main className={styles.main}>
           <h2 >
-           Dive to Learn something <b>New</b>
+           Dive to Learn
           </h2>
          
 
@@ -40,6 +40,7 @@ const Blogs = (props) => {
               <h3>{blogfile.title}</h3>
               </Link>
               <p>{blogfile.metadesc.substr(0,129)}...</p>
+              <Link href={`/blogposts/${blogfile.slug}`}><button className={styles.btn}>Read More</button></Link>
             </div>
             })}
            

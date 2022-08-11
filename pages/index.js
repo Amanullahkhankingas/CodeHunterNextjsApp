@@ -10,13 +10,13 @@ import styles from '../styles/Home.module.css'
 export default function Home() {
   return (
     <>    
-      <style jsx>
+      {/* <style jsx>
         {`
         
        
 
         `}
-      </style>
+      </style> */}
     
 
       {/* <Dummy/> setting the style jsx of Dummy component as global ,so now we can use css class of dummy component here  */}
@@ -32,13 +32,13 @@ export default function Home() {
         
 
         <main className={styles.main}>
-          <h1 className={styles.title}>
+          {/* <h1 className={styles.title}>
            Code Hunter
-          </h1>
+          </h1> */}
           <div className={styles.imgdiv}>
           {/* <Image className={styles.imgclass} src="/homeimg.jpg" width={512} height={256}/> */}
   
-          <img className={styles.imgclass} src="/homeimg.jpg" alt="Code Hunter"  width={512} height={256} />
+          <img className={styles.imgclass} src="/homeimg.jpg" alt="Code Hunter"  width={256} height={256} />
 
           </div>
           <p className={styles.description}>
@@ -47,26 +47,31 @@ export default function Home() {
 
           {/* <div className={`${styles1.con} ${styles2.con}`}> */}
           <div className="blogs">
-            <h1>Populer Blogs</h1>
-            <div className="blogitem">
+            <h2>Populer Blogs</h2>
+            <div className={styles.blogitem}>
               <h3>Learn javaScript in 2022</h3>
               <p>Javascirpt is a machine understandable language which was used to design the website</p>
+              <button className={styles.btn}>Read More</button>
             </div>
-            <div className="blogitem">
+            <div className={styles.blogitem}>
               <h3>Learn javaScript in 2022</h3>
               <p>Javascirpt is a machine understandable language which was used to design the website</p>
+              <button className={styles.btn}>Read More</button>
             </div>
-            <div className="blogitem">
+            <div className={styles.blogitem}>
               <h3>Learn javaScript in 2022</h3>
               <p>Javascirpt is a machine understandable language which was used to design the website</p>
+              <button className={styles.btn}>Read More</button>
             </div>
-            <div className="blogitem">
+            <div className={styles.blogitem}>
               <h3>Learn javaScript in 2022</h3>
               <p>Javascirpt is a machine understandable language which was used to design the website</p>
+              <button className={styles.btn}>Read More</button>
             </div>
-            <div className="blogitem">
+            <div className={styles.blogitem}>
               <h3>Learn javaScript in 2022</h3>
               <p>Javascirpt is a machine understandable language which was used to design the website</p>
+              <button className={styles.btn}>Read More</button>
             </div>
           </div>
 
