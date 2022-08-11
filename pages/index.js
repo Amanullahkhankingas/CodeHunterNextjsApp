@@ -38,11 +38,12 @@ export default function Home() {
           <div className={styles.imgdiv}>
           {/* <Image className={styles.imgclass} src="/homeimg.jpg" width={512} height={256}/> */}
   
-          <img className={styles.imgclass} src="/homeimg.jpg" alt="Code Hunter"  width={256} height={256} />
+          {/* <img className={styles.imgclass} src="/homeimg.jpg" alt="Code Hunter"  width={256} height={256} /> */}
+          <img className={styles.imgclass} src="/homeimg.jpg" alt="Code Hunter" />
 
           </div>
           <p className={styles.description}>
-            Code hunter is helping to <b>Learn</b> new <b>Skills</b>, Problem solve methods,<br/>Bug catching techniques
+            Code hunter is helping to <b>Learn</b> new <b>Skills</b>, Problem solve methods, Bug catching techniques
           </p>
 
           {/* <div className={`${styles1.con} ${styles2.con}`}> */}

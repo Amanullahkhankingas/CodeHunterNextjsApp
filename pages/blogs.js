@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react'
 import styles from '../styles/Blog.module.css'
 import Link from 'next/link'
 import fs from 'fs'
+  // in code ES6
+  import InfiniteScroll from 'react-infinite-scroll-component';
+  // // or commonjs
+  // var InfiniteScroll = require('react-infinite-scroll-component');
 
 // Step 1: Collect all the files from blogdata directory
 //Step 2: Iterate through them and Dispaly them
@@ -11,6 +15,7 @@ const Blogs = (props) => {
 
   // const [blogsitem,setBlogsitem]= useState([]);
   const [blogsitem,setBlogsitem]= useState(props.allmyblogs);
+  // const [blogsitem,setBlogsitem]= useState();
 
       // useEffect(()=>{
       //   console.log("use effect is running")
@@ -21,17 +26,50 @@ const Blogs = (props) => {
       //       setBlogsitem(blogdata)
       //   })
       // },[])
+
+      const [count,setCount] =useState(3)
+
+      const fetchMoreData = async () => {
+        
+        let allblogss =await fetch(`http://localhost:3000/api/blogs/?count=${count+2}`);
+        setCount(count+2)
+     let allmyblogss=await allblogss.json();
+
+       setBlogsitem(allmyblogss)
+      //  console.log(allmyblogss)
+
+
+      }
+
+        
+  
       
 
   return (
     <div>
       
       <main className={styles.main}>
-          <h2 >
+          {/* <h2 >
            Dive to Learn
-          </h2>
+          </h2> */}
          
-
+          <InfiniteScroll
+          
+          dataLength={blogsitem.length}
+          next={fetchMoreData}
+          hasMore={blogsitem.length!==props.blogslength}
+          loader={<h4>Loading...</h4>}
+          endMessage={
+            <p style={{textAlign:"center"}}>
+              <b>You have seen it all the blogs</b>
+            </p>
+          }
+        >
+          {/* {this.state.items.map((i, index) => (
+            <div style={style} key={index}>
+              div - #{index}
+            </div>
+          ))} */}
           
           <div className="blogs">
             {blogsitem.map((blogfile)=>{
@@ -47,6 +85,8 @@ const Blogs = (props) => {
            
           </div>
 
+            </InfiniteScroll>
+
         </main>
 
 
@@ -59,9 +99,11 @@ export async function getStaticProps(context){
  
   let data = await fs.promises.readdir(`blogdata`,'utf-8') 
     
+  let blogslength = data.length;
     let allmyblogs=[];
 
-    for (let index = 0; index < data.length; index++) {
+    // for (let index = 0; index < data.length; index++) {
+    for (let index = 0; index < 4; index++) {
         const item = data[index];
 
        const allblogs = await fs.promises.readFile(`blogdata/${item}`,'utf-8')
@@ -75,7 +117,7 @@ export async function getStaticProps(context){
 
   return{
     
-    props:{allmyblogs}, 
+    props:{allmyblogs,blogslength}, 
   }
 }
 

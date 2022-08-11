@@ -60,6 +60,8 @@ width: 100vw;
 
 .imgclass{
  border-radius: 50%;
+ width: 256px;
+ height: 256px;
  /* margin-top: 123px !important; */
 }
 
@@ -68,7 +70,7 @@ width: 100vw;
   height: 256px;
   position: relative;
   border-radius: 50%;
-  margin-top: 23px;
+  margin-top: 63px;
   box-shadow:6px 17px 47px white,-6px -10px 47px white,
              6px 57px 67px rgb(255, 1, 1),-6px -50px 67px rgb(0, 0, 0);
   
@@ -131,4 +133,104 @@ width: 100vw;
   background:rgb(71, 4, 4);
   border-color: yellow;
  
+}
+
+.description{
+  text-align: center;
+}
+
+@media screen and (max-width:920px) {
+ 
+  .main {
+    margin: 2rem auto;
+    max-width: 80vw;
+    padding: 0.5rem 5rem;
+  
+     }
+  
+     .blogitem h3{
+    
+      max-width: 75vw;
+    }
+    .blogitem p{
+     
+      max-width: 75vw;
+    }
+
+}
+@media screen and (max-width:700px) {
+ 
+  .container {
+    padding: 0 0rem;
+  }
+  .main {
+    margin: 1rem auto;
+    padding: 0.5rem 3rem;
+    max-width: 95vw;
+  
+     }
+  
+     .blogitem h3{
+    
+      max-width: 90vw;
+    }
+    .blogitem p{
+     
+      max-width: 90vw;
+    }
+
+}
+
+@media screen and (max-width:430px) {
+  
+  .main {
+    margin: 2rem auto;
+    max-width: 95vw;
+    padding: 0.5rem 1rem;
+  
+     }
+     .blogitem h3{
+    
+      max-width: 95vw;
+      font-size: 1.1rem;
+    }
+    .blogitem p{
+     
+      max-width: 95vw;
+    }
+
+
+    .main h2{
+      font-size: 1.7rem;
+      padding-bottom: 0;
+      margin: 0;
+     
+    }
+
+    .imgclass{
+      border-radius: 50%;
+      width: 156px;
+      height: 156px;
+      /* margin-top: 123px !important; */
+     }
+
+
+     .imgdiv{
+      width: 156px;
+      height: 156px;
+      
+    }
+    .imgdiv::after{
+      content: "<Code Hunter/>";
+    
+      font-size: 1rem;
+    
+    
+    }
+
+    .description{
+    margin-bottom: 2rem;
+    }
+    
+    
 }

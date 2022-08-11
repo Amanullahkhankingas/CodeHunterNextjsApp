@@ -53,3 +53,14 @@
     background:rgb(71, 4, 4);
    
 }
+
+@media screen and (max-width:600px) {
+    .container{
+        max-width: 90vw;
+      
+    }
+
+    .center{
+       font-size: 1.8rem;
+    }
+}

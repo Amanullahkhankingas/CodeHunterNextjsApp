@@ -55,7 +55,7 @@ function createMarkup(c) {
   return {__html: c};
 }
 
-  return <div className={styles.container}>
+  return <div>
      <div className={styles.container}>
       <h2>{blog && blog.title}</h2>
       {blog && <div dangerouslySetInnerHTML={createMarkup(blog.content)}></div>}
@@ -67,13 +67,25 @@ function createMarkup(c) {
 
 }
 
+// export async function getStaticPaths() {
+//   return {
+//     paths:[
+//       {params:{slug: "how_to_learn_javascript"}},
+//       {params:{slug: "how_to_learn_nextjs"}},
+//       {params:{slug: "how_to_learn_reactjs"}},
+//     ],
+//     fallback:true //falls or 'blocking'
+//   };
+// }
+
 export async function getStaticPaths() {
+  let allblo = await fs.promises.readdir('blogdata')
+  allblo = allblo.map((item)=>{
+    return { params: { slug: item.split(".")[0] }}
+  })
+   console.log(allblo)
   return {
-    paths:[
-      {params:{slug: "how_to_learn_javascript"}},
-      {params:{slug: "how_to_learn_nextjs"}},
-      {params:{slug: "how_to_learn_reactjs"}},
-    ],
+    paths:allblo,
     fallback:true //falls or 'blocking'
   };
 }

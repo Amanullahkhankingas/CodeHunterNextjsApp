@@ -1,5 +1,6 @@
 
 // http://localhost:3000/api/blogs
+// http://localhost:3000/api/blogs/?count=2
 
 import fs from 'fs'
 
@@ -7,6 +8,8 @@ export default async function getblog (reqpost,respost) {
 
 
     let data = await fs.promises.readdir(`blogdata`,'utf-8')
+    //  console.log(reqpost.query.count)
+     data = data.slice(0,parseInt(reqpost.query.count))
     // console.log(data)
     
     let allblogs=[];

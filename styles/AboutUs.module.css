@@ -1,7 +1,7 @@
 
 .container{
     max-width: 65vw;
-    margin: 1.2rem auto;
+    margin: 4.2rem auto;
     border:2px solid black;
     border-top: none;
     border-bottom: none;
@@ -10,4 +10,15 @@
 
 .center{
     text-align: center;
+}
+
+@media screen and (max-width:700px) {
+ 
+    .container{
+        max-width: 85vw;
+        
+        padding: 0 0.7rem;
+    }
+    
+
 }
